@@ -1,0 +1,29 @@
+{
+  "Text": {
+    "instances": 3,
+    "props": {
+      "align": 3,
+      "border": 3,
+      "color": 3,
+      "margin": 3,
+      "padding": 3,
+      "weight": 3,
+      "size": 2
+    }
+  },
+  "div": {
+    "instances": 2,
+    "props": {
+      "className": 1,
+      "style": 1
+    }
+  },
+  "App": {
+    "instances": 1,
+    "props": {}
+  },
+  "React.StrictMode": {
+    "instances": 1,
+    "props": {}
+  }
+}
