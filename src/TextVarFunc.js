@@ -1,4 +1,4 @@
-export const Text = ({ border, size, color, padding, margin, underline, align, weight }) => {
+export function TextFunc({ border, size, color, padding, margin, underline, align, weight }) {
   return (
     <div
       style={{
@@ -15,4 +15,4 @@ export const Text = ({ border, size, color, padding, margin, underline, align, w
       Lorem ipsum dolor sit amet.
     </div>
   );
-};
+}

@@ -4,6 +4,7 @@ const { fdir } = require('fdir');
 const htmlTags = require('html-tags');
 const { parse } = require('@typescript-eslint/typescript-estree');
 const astray = require('astray');
+const util = require('util');
 
 const parseOptions = {
   loc: true,
@@ -24,11 +25,18 @@ const unused = {};
 for (const filePath of files) {
   const code = fs.readFileSync(filePath, 'utf8');
   const ast = parse(code, parseOptions);
-
+  // console.log(util.inspect(ast, false, null, true /* enable colors */));
   astray.walk(ast, {
     VariableDeclarator(node) {
       if (usedComponents.includes(node.id.name)) {
         const availableProps = node.init.params.flatMap((par) => par.properties.map((prop) => prop.key.name));
+        const usedProps = Object.keys(obj[node.id.name].props);
+        unused[node.id.name] = difference(availableProps, usedProps);
+      }
+    },
+    FunctionDeclaration(node) {
+      if (usedComponents.includes(node.id.name)) {
+        const availableProps = node.params.flatMap((par) => par.properties.map((prop) => prop.key.name));
         const usedProps = Object.keys(obj[node.id.name].props);
         unused[node.id.name] = difference(availableProps, usedProps);
       }

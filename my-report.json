@@ -1,5 +1,17 @@
 {
-  "Text": {
+  "TextFunc": {
+    "instances": 3,
+    "props": {
+      "align": 3,
+      "color": 3,
+      "margin": 3,
+      "padding": 3,
+      "underline": 3,
+      "weight": 3,
+      "size": 2
+    }
+  },
+  "TextVar": {
     "instances": 3,
     "props": {
       "align": 3,
@@ -12,10 +24,10 @@
     }
   },
   "div": {
-    "instances": 2,
+    "instances": 3,
     "props": {
-      "className": 1,
-      "style": 1
+      "style": 2,
+      "className": 1
     }
   },
   "App": {
